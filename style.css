@@ -28,3 +28,36 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+main {
+    text-align: center;
+    margin: 20px;
+}
+
+footer {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h2 {
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
