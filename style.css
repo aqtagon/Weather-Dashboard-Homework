@@ -22,42 +22,82 @@ form {
     text-align: center;
 }
 
-input[type="text"] {
+#cityInput {
     padding: 10px;
-    width: 60%;
-    border: 1px solid #ccc;
+    width: 300px;
+    border: 2px solid #3498db;
     border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
 }
 
-button {
+#searchButton {
     padding: 10px 20px;
     background-color: #3498db;
     border: none;
-    color: #fff;
     border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
     cursor: pointer;
 }
 
-main {
-    text-align: center;
-    margin: 20px;
-}
-
-footer {
+#currentWeather {
     background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
     text-align: center;
-    padding: 20px 0;
+    box-shadow: 0 0 10px rgba(red, green, blue, alpha);
 }
 
-h2 {
-    color: #333;
-}
-
-ul {
+#searchHistory {
     list-style: none;
     padding: 0;
 }
 
-li {
-    margin: 5px 0;
+.list-group-item {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.list-group-item:hover {
+    background-color: #007acc;
+}
+
+#forecast {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(red, green, blue, alpha);
+}
+
+#errorMessage {
+    color: #ff0000;
+    font-size: 16px;
+}
+
+footer {
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    #cityInput {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    #searchButton {
+        width: 100%;
+    }
+    
 }
