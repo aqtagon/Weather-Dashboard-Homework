@@ -61,3 +61,10 @@
            `;
         });
     }
+
+    function addToSearchHistory(city) {
+        const searchItem = document.createElement('li');
+        searchItem.textContent = city;
+        searchItem.classList.add('list-group-item');
+        searchHistory.appendChild(searchItem);
+    }
