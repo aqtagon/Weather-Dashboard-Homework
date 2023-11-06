@@ -48,18 +48,23 @@
     function displayForecast(data) {
         forecast.innerHTML = '';
         const dailyForecasts = data.list.filter((entry) => entry.dt_txt.includes('15:00:00'));
-        dailyForecasts.slice(0, 5).forEach((forecast) => {
-            forecast.innerHTML += `
-            <div class="card">
+        dailyForecasts.slice(0, 5).forEach((forecastEntry) => {
+            const forecastCard = document.createElement('div');
+            forecastCard.classList.add('card');
+            forecastCard.innerHTML = `
+            
                 <div class="card-body">
-                    <h5>${new Date(forecast.dt * 1000).toLocaleDateString()}</h5>
-                    <p>Temperature: ${forecast.main.temp} &#8451;</p>
-                    <p>Humidity: ${forecast.main.humidity}%</p>
-                    <p>Wind Speed: ${forecast.wind.speed} m/s</p>
+                    <h5>${new Date(forecastEntry.dt * 1000).toLocaleDateString()}</h5>
+                    <p>Temperature: ${forecastEntry.main.temp} &#8451;</p>
+                    <p>Humidity: ${forecastEntry.main.humidity}%</p>
+                    <p>Wind Speed: ${forecastEntry.wind.speed} m/s</p>
                 </div>
-            </div>
+            
            `;
+           forecast.appendChild(forecastCard);
         });
+
+      
     }
 
     function addToSearchHistory(city) {
