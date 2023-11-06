@@ -1,8 +1,11 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('search-form');
+    const apiKey = '2b20567b537ed255fc7d03137da7d7a4';
+    const searchForm = document.getElementById('search-form');
     const cityInput = document.getElementById('city-input');
-    const weatherInfo = document.getElementById('weather-info');
-    const forecastInfo = document.getElementById('forecast-info');
+    const currentWeather = document.getElementById('current-weather');
+    const forecast = document.getElementById('forecast');
+    const searchHistory = document.getElementById('search-history');
 
     
-})
+
+
+
