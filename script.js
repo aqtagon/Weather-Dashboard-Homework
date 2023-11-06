@@ -44,3 +44,20 @@
         `;
 
     }
+
+    function displayForecast(data) {
+        forecast.innerHTML = '';
+        const dailyForecasts = data.list.filter((entry) => entry.dt_txt.includes('15:00:00'));
+        dailyForecasts.slice(0, 5).forEach((forecast) => {
+            forecast.innerHTML += `
+            <div class="card">
+                <div class="card-body">
+                    <h5>${new Date(forecast.dt * 1000).toLocaleDateString()}</h5>
+                    <p>Temperature: ${forecast.main.temp} &#8451;</p>
+                    <p>Humidity: ${forecast.main.humidity}%</p>
+                    <p>Wind Speed: ${forecast.wind.speed} m/s</p>
+                </div>
+            </div>
+           `;
+        });
+    }
