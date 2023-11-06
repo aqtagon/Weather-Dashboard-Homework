@@ -33,3 +33,14 @@
      }   
 
     }
+
+    function displayCurrentWeather(data) {
+        currentWeather.innerHTML = `
+        <h3>${data.name}, ${data.sys.country}</h3>
+        <p>${new Date(data.dt * 1000).toLocaleDateString()}</p>
+        <p>Temperature: ${data.main.temp} &#8451;</p>
+        <p>Humidity: ${data.main.humidity}%</p>
+        <p>Wind Speed: ${data.wind.speed} m/s</p>
+        `;
+
+    }
