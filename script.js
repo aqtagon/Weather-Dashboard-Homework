@@ -5,7 +5,14 @@
     const forecast = document.getElementById('forecast');
     const searchHistory = document.getElementById('search-history');
 
-    
+    searchForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const city = cityInput.value;
+        if (city) {
+            getWeatherData(city);
+            cityInput.value = '';
+        }
+    });
 
 
 
