@@ -14,6 +14,15 @@
         }
     });
 
+    searchHistory.addEventListener('click', function (e) {
+        if (e.target.classList.contains('list-group-item')) {
+            const city = e.target.textContent;
+            getWeatherData(city);
+        }
+    });
+
+    
+
     async function  getWeatherData(city) {
 
     try {
@@ -42,6 +51,7 @@
         <p>Humidity: ${data.main.humidity}%</p>
         <p>Wind Speed: ${data.wind.speed} m/s</p>
         `;
+    
 
     }
 
@@ -55,34 +65,11 @@
             
              
            const weatherIcon = document.createElement('i');
-           weatherIcon.classList.add('fas');
-
-           const iconMapping = {
-            '01d': 'fa-sun',
-            '01n': 'fa-moon',
-            '02d': 'fa-cloud-sun',
-            '02n': 'fa-cloud-moon',
-            '03d': 'fa-cloud',
-            '03n': 'fa-cloud',
-            '04d': 'fa-cloud',
-            '04n': 'fa-cloud',
-            '09d': 'fa-cloud-showers-heavy',
-            '09n': 'fa-cloud-showers-heavy',
-            '10d': 'fa-cloud-sun-rain',
-            '10n': 'fa-cloud-moon-rain',
-            '11d': 'fa-bolt',
-            '11n': 'fa-bolt',
-            '13d': 'fa-snowflake',
-            '13n': 'fa-snowflake',
-            '50d': 'fa-smog',
-            '50n': 'fa-smog'
-           };
-
-           const iconCode = forecastEntry.weather[0].icon;
-           const mappedIcon = iconMapping[iconCode] || 'fa-question';
-
-           weatherIcon.classList.add(mappedIcon);
+           weatherIcon.classList.add('fas', getWeatherIcon(forecastEntry.weather[0].icon));
            card.appendChild(weatherIcon);
+
+           
+
 
            card.innerHTML += `
                <h5>${new Date(forecastEntry.dt * 1000).toLocaleDateString()}</h5>
@@ -103,3 +90,29 @@
         searchItem.classList.add('list-group-item');
         searchHistory.appendChild(searchItem);
     }
+
+    function getWeatherIcon(iconCode) {
+        const iconMapping = {
+            '01d': 'fa-sun',
+            '01n': 'fa-moon',
+            '02d': 'fa-cloud-sun',
+            '02n': 'fa-cloud-moon',
+            '03d': 'fa-cloud',
+            '03n': 'fa-cloud',
+            '04d': 'fa-cloud',
+            '04n': 'fa-cloud',
+            '09d': 'fa-cloud-showers-heavy',
+            '09n': 'fa-cloud-showers-heavy',
+            '10d': 'fa-cloud-sun-rain',
+            '10n': 'fa-cloud-moon-rain',
+            '11d': 'fa-bolt',
+            '11n': 'fa-bolt',
+            '13d': 'fa-snowflake',
+            '13n': 'fa-snowflake',
+            '50d': 'fa-smog',
+            '50n': 'fa-smog'
+
+        };
+        return iconMapping[iconCode] || 'fa-question';
+    }
+    
