@@ -8,7 +8,7 @@ body {
 
 .header {
     background-color: #3498db;
-    color: #fff;
+    color: #fff;    
     text-align: center;
     padding: 20px;
 }
@@ -39,8 +39,8 @@ body {
 #current-weather {
     background-color: #fff;
     border-radius: 5px;
-    padding: 20px;
-    margin: 20px;
+    padding: 10px;
+    margin: 10px;
     text-align: center;
     box-shadow: 0 0 10px rgba(red, green, blue, alpha);
 }
@@ -53,7 +53,7 @@ body {
 .list-group-item {
     background-color: #3498db;
     color: #fff;
-    padding: 10px;
+    padding: 8px;
     margin: 5px;
     border-radius: 5px;
     cursor: pointer;
@@ -66,15 +66,17 @@ body {
 #forecast {
     background-color: #fff;
     border-radius: 5px;
-    padding: 20px;
-    margin: 20px;
+    padding: 10px;
+    margin: 10px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(red, green, blue, alpha);
+    box-shadow: 0 0 5px rgba(red, green, blue, alpha);
+    white-space: nowrap;
+    overflow: auto;
 }
 
 #errorMessage {
     color: #ff0000;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 footer {
@@ -96,3 +98,4 @@ footer {
     }
     
 }
+

@@ -59,8 +59,17 @@
                     <p>Humidity: ${forecastEntry.main.humidity}%</p>
                     <p>Wind Speed: ${forecastEntry.wind.speed} m/s</p>
                 </div>
+
+            
             
            `;
+           const weatherIcon = document.createElement('i');
+           weatherIcon.classList.add('fas');
+
+           const iconMapping = {
+            
+           }
+
            forecast.appendChild(forecastCard);
         });
 
