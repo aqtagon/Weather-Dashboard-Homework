@@ -49,28 +49,49 @@
         forecast.innerHTML = '';
         const dailyForecasts = data.list.filter((entry) => entry.dt_txt.includes('15:00:00'));
         dailyForecasts.slice(0, 5).forEach((forecastEntry) => {
-            const forecastCard = document.createElement('div');
-            forecastCard.classList.add('card');
-            forecastCard.innerHTML = `
-            
-                <div class="card-body">
-                    <h5>${new Date(forecastEntry.dt * 1000).toLocaleDateString()}</h5>
-                    <p>Temperature: ${forecastEntry.main.temp} &#8451;</p>
-                    <p>Humidity: ${forecastEntry.main.humidity}%</p>
-                    <p>Wind Speed: ${forecastEntry.wind.speed} m/s</p>
-                </div>
+           const card = document.createElement('div');
+           card.classList.add('forecast-card');
 
             
-            
-           `;
+             
            const weatherIcon = document.createElement('i');
            weatherIcon.classList.add('fas');
 
            const iconMapping = {
-            
-           }
+            '01d': 'fa-sun',
+            '01n': 'fa-moon',
+            '02d': 'fa-cloud-sun',
+            '02n': 'fa-cloud-moon',
+            '03d': 'fa-cloud',
+            '03n': 'fa-cloud',
+            '04d': 'fa-cloud',
+            '04n': 'fa-cloud',
+            '09d': 'fa-cloud-showers-heavy',
+            '09n': 'fa-cloud-showers-heavy',
+            '10d': 'fa-cloud-sun-rain',
+            '10n': 'fa-cloud-moon-rain',
+            '11d': 'fa-bolt',
+            '11n': 'fa-bolt',
+            '13d': 'fa-snowflake',
+            '13n': 'fa-snowflake',
+            '50d': 'fa-smog',
+            '50n': 'fa-smog'
+           };
 
-           forecast.appendChild(forecastCard);
+           const iconCode = forecastEntry.weather[0].icon;
+           const mappedIcon = iconMapping[iconCode] || 'fa-question';
+
+           weatherIcon.classList.add(mappedIcon);
+           card.appendChild(weatherIcon);
+
+           card.innerHTML += `
+               <h5>${new Date(forecastEntry.dt * 1000).toLocaleDateString()}</h5>
+               <p>Temperature: ${forecastEntry.main.temp} &#8451;</p>
+               <p>Humidity: ${forecastEntry.main.humidity}%</p>
+               <p>Wind Speed: ${forecastEntry.wind.speed} m/s</p>
+           `;
+
+           forecast.appendChild(card);  
         });
 
       
