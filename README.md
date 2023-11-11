@@ -22,4 +22,6 @@ The goal of this assignment was to create a weather dashboard application that d
 #### Result
 - See Weather Dashboard Website here:
 - Preview: ![Weather-Dashboard-Homework](<images/Screenshot 2023-11-10 at 10.08.09 PM.png>)
-- Website: [Link]()
+- Website: [Link](https://aqtagon.github.io/Weather-Dashboard-Homework/)
+
+Note: Got assistance from Amninder Singh and Cuitlahuac Hernandez from class and used chatgpt and google for questions.
