@@ -15,6 +15,20 @@
             return response.json();
           })
           then((data)=>{
+            const cityName = data.name;
+            const temperatureCelsius = data.main.temp;
+            const temperatureFahrenheit = (temperatureCelsius * 9/5) + 32;//Convert to Fahrenheit
+            const humidity = data.main.humidity;
+            const windSpeed = data.wind.speed;
+
+          currentWeather.innerHTML = `
+          <h2>${cityName}</h2>
+          <p>Temperature: ${temperatureFahrenheit}°F (${temperatureCelsius}°C)</p>
+          <p>Humidity: ${humidity}%</p>
+          <p>Wind Speed: ${windSpeed}ms</p>
+          `;
+
+          
           }
     }
 
