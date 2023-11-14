@@ -5,6 +5,19 @@
     const forecast = document.getElementById('forecast');
     const searchHistory = document.getElementById('search-history');
 
+    function fetchCurrentWeather(city){
+        const apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        fetch(apiUrl)
+          .then((response)=>{
+            if(!response.ok) {
+               throw new Error('Network response was not ok'); 
+            }
+            return response.json();
+          })
+          then((data)=>{
+          }
+    }
+
     searchForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const city = cityInput.value;
