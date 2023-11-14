@@ -17,7 +17,7 @@
           then((data)=>{
             const cityName = data.name;
             const temperatureCelsius = data.main.temp;
-            const temperatureFahrenheit = (temperatureCelsius * 9/5) + 32;//Convert to Fahrenheit
+            const temperatureFahrenheit = (temperatureCelsius * 9/5) + 32;
             const humidity = data.main.humidity;
             const windSpeed = data.wind.speed;
 
@@ -28,8 +28,43 @@
           <p>Wind Speed: ${windSpeed}ms</p>
           `;
 
-          
-          }
+          fetchForecast(data.coord.lat, data.coord.lon);
+
+          storeCityInLocalStorage(city);
+          })
+          .catch((error)=> {
+            console.error('Error fetching current weather:', error);
+          });
+    }
+
+    function fetchForecast(lat,lon) {
+        const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+        
+        fetch(apiUrl)
+          .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then((data) => {
+
+            forecast.innerHTML = '';
+
+            const forecastData = data.list;
+
+            const groupedData = {};
+
+            forecastData.forEach((item) => {
+                const date = new Date(item.dt * 1000);
+                const dateString = date.toDateString();
+
+                if (!groupedData[dateString]) {
+                    groupedData[dateString] = item;
+                }
+            });
+          })
+
     }
 
     searchForm.addEventListener('submit', function (e) {
