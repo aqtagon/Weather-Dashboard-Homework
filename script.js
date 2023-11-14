@@ -7,6 +7,7 @@
 
     function fetchCurrentWeather(city){
         const apiUrl= `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        
         fetch(apiUrl)
           .then((response)=>{
             if(!response.ok) {
