@@ -63,6 +63,29 @@
                     groupedData[dateString] = item;
                 }
             });
+
+            for (const dateString in groupedData) {
+                const item = groupedData[dateString];
+                const date = new Date(item.dt * 1000);
+                const timeString = date.toLocaleTimeString();
+
+                const temperatureCelsius = item.main.temp;
+                const temperatureFahrenheit = (temperatureCelsius * 9/5) + 32;
+                const humidity = item.main.humidity;
+                const windSpeed = item.wind.speed;
+                const weatherIcon = item.weather[0].icon;
+
+                const forecastItem = document.createElement('div');
+                forecastItem.classList.add('forecast-item');
+
+                forecastItem.innerHTML = `
+                <h3>${dateString} - ${timeString}</h3>
+                <img src="https://openweathermap.org/img/w/${weatherIcon}.png" alt="Weather Icon">
+                <p>Temperature: ${temperatureFahrenheit}°F (${temperatureCelsius}°C)</p>
+                <p>Humidity: ${humidity}%</p>
+                <p>Wind Speed: ${windSpeed} m/s</p>
+               `;
+            }
           })
 
     }
