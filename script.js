@@ -85,9 +85,29 @@
                 <p>Humidity: ${humidity}%</p>
                 <p>Wind Speed: ${windSpeed} m/s</p>
                `;
+
+               forecast.appendChild(forecastItem);
+
             }
           })
+          .catch((error) => {
+            console.error('Error fetching forecast:', error);
+          });
 
+    }
+
+    function storeCityInLocalStorage(city) {
+        if (typeof(Storage) !=="undefined") {
+            let searchHistoryList = JSON.parse(localStorage.getItem('searchHistory')) || [];
+
+            searchHistoryList.push(city);
+
+            localStorage.setItem('searchHistory', JSON.stringify(searchHistoryList));
+
+            updateSearchHistoryUi(searchHistoryList);
+        } else {
+            console.error('Local storage is not supported in this browser.');
+        }
     }
 
     searchForm.addEventListener('submit', function (e) {
